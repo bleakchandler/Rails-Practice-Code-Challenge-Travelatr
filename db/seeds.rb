@@ -6,6 +6,12 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+Post.destroy_all
+Post.reset_pk_sequence
+Destination.destroy_all
+Destination.reset_pk_sequence
+Blogger.destroy_all
+Blogger.reset_pk_sequence
 
 30.times do 
   Destination.create({
@@ -13,7 +19,6 @@
     country: Faker::Address.country
   })
 end
-
 
 10.times do
   blogger = Blogger.create({
@@ -32,3 +37,5 @@ end
     })
   end
 end
+
+puts "Seeded!"
